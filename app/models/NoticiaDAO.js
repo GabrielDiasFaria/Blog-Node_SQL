@@ -17,9 +17,9 @@ NoticiasDAO.prototype.getTopFive = function(callback){
 }
 
 // RETORNA NOTÍCIA
-NoticiasDAO.prototype.getNoticia = function(callback){
+NoticiasDAO.prototype.getNoticia = function(query, callback){
     this._connection.connect().then(pool => {
-        return pool.request().query('SELECT * FROM noticias WHERE id_noticia = 1', callback);
+        return pool.request().query('SELECT * FROM noticias WHERE id_noticia = ' + query.id_noticia, callback);
     });
 }
 
@@ -27,7 +27,7 @@ NoticiasDAO.prototype.getNoticia = function(callback){
 NoticiasDAO.prototype.postNoticia = function (noticia, callback){
     this._connection.connect().then(pool => {
         console.log(noticia); 
-        return pool.request().query("insert into noticias values ('"+noticia.titulo+"','"+noticia.noticia+"', getdate(), '"+noticia.resumo+"', '"+noticia.autor+"', '"+noticia.data_noticia+"')", callback);
+        return pool.request().query("INSERT INTO noticias VALUES ('"+noticia.titulo+"','"+noticia.noticia+"', getdate(), '"+noticia.resumo+"', '"+noticia.autor+"', '"+noticia.data_noticia+"')", callback);
     });
 }
 
