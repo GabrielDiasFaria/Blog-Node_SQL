@@ -1,3 +1,9 @@
 module.exports.index = function(application, req, res){
-    res.render("home/index");
+
+    var connection = application.config.dbConnection();
+    var noticiasModel = new application.app.models.NoticiaDAO(connection);
+
+    noticiasModel.getTopFive(function(err, result){
+        res.render("home/index", {noticias : result.recordset});
+    });
 }

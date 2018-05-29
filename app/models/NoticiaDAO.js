@@ -9,6 +9,13 @@ NoticiasDAO.prototype.getNoticias = function(callback){
     });
 }
 
+// RETORNA NOTÍCIAS
+NoticiasDAO.prototype.getTopFive = function(callback){
+    this._connection.connect().then(pool => {
+        return pool.request().query('SELECT TOP 5 * FROM noticias ORDER BY data_criacao DESC', callback);
+    });
+}
+
 // RETORNA NOTÍCIA
 NoticiasDAO.prototype.getNoticia = function(callback){
     this._connection.connect().then(pool => {
