@@ -32,3 +32,22 @@ App.JS
 
 OBS:
 1) No Gitignore coloco o dbConnection, logo terá que configurar manual o arquivo
+** EXEMPLO **
+var mssql = require('mssql');
+
+var connMSSQL = function(){
+    return connection = new mssql.ConnectionPool({
+        user: 'usuário',
+        password: 'senha',
+        server: 'servidor sql',
+        database: 'base de dados',
+        options: {
+            trustedConnection: true // conexão com windows authentication
+        }
+    });
+}
+
+module.exports = function () {
+    return connMSSQL;
+}
+** EXEMPLO **
