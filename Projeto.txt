@@ -28,3 +28,7 @@ Node_Modules
 
 App.JS
     * Iniciação do Servidor
+
+
+OBS:
+1) No Gitignore coloco o dbConnection, logo terá que configurar manual o arquivo
