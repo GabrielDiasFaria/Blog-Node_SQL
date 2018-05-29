@@ -1,0 +1,30 @@
+-- Projeto --
+
+Nome: Portal de Notícias
+Descrição: Portal para Blog de Notícias
+
+Estrutura:
+App
+    -> Routes:
+        * Usado para receber o HTTP e direcionar para a controller responsável
+    -> Controller:
+        * Responsável por chamar o Model(DAO) para acessar a base e renderizar as Views
+    -> Model:
+        * Responsável por acessar a base de dados
+    -> View:
+        * HTML de exibição do lado do cliente
+    -> Public:
+        * Armazena os recursos estáticos
+            - CSS, JS, Jquery
+            - Imagens
+Config
+    -> dbConnection:
+        * Possui as strings de conexão
+    -> Server:
+        * Usado para configurar a aplicação e seus Requires
+
+Node_Modules
+    * Usado para armazenar as dependencias do Projeto
+
+App.JS
+    * Iniciação do Servidor
